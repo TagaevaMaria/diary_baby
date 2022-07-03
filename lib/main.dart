@@ -1,4 +1,4 @@
-import 'package:diary_baby/main_screen/screen_allergy.dart';
+import 'package:diary_baby/screen_allergy/screen_allergy.dart';
 import 'package:diary_baby/main_screen/screen_photo.dart';
 import 'package:flutter/material.dart';
 
