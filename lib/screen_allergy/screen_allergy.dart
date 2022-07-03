@@ -1,3 +1,4 @@
+import 'package:diary_baby/screen_allergy/calendar_allergy.dart';
 import 'package:diary_baby/screen_allergy/event.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -43,40 +44,9 @@ class _ScreenAllergyState extends State<ScreenAllergy> {
         ),
         body: Column(
           children: [
-            TableCalendar(
-              locale: 'ru_RU',
-              focusedDay: selectedDay,
-              firstDay: DateTime(2000),
-              lastDay: DateTime(2050),
-              calendarFormat: format,
-              onFormatChanged: (CalendarFormat _format) {
-                setState(() {
-                  format = _format;
-                });
-              },
-              startingDayOfWeek: StartingDayOfWeek.monday,
-              daysOfWeekVisible: true,
-              onDaySelected: (DateTime selectdDay, DateTime focusDay) {
-                setState(() {
-                  selectedDay = selectdDay;
-                  focusedDay = focusDay;
-                });
-                print(focusDay);
-              },
-              selectedDayPredicate: (DateTime date) {
-                return isSameDay(selectedDay, date);
-              },
-              eventLoader: _getEventsfromDay,
+            CalendarAllergy(),
 
-              /// стиль календаря
-              calendarStyle: const CalendarStyle(
-                  isTodayHighlighted: true,
-                  selectedDecoration: BoxDecoration(
-                      color: Colors.pinkAccent, shape: BoxShape.circle),
-                  selectedTextStyle: TextStyle(color: Colors.white),
-                  todayDecoration: BoxDecoration(
-                      color: Colors.blueAccent, shape: BoxShape.circle)),
-            ),
+            ///мой календарь
             ..._getEventsfromDay(selectedDay).map(
               (Event event) => ListTile(
                 title: Text(event.title),
@@ -88,7 +58,7 @@ class _ScreenAllergyState extends State<ScreenAllergy> {
           onPressed: () => showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Добавить событие'),
+              title: const Text('Добавить событие'),
               content: TextFormField(
                 controller: _eventcontroller,
               ),
@@ -97,9 +67,9 @@ class _ScreenAllergyState extends State<ScreenAllergy> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('закрыть')),
+                    child: const Text('закрыть')),
                 TextButton(
-                  child: Text('ok'),
+                  child: const Text('ok'),
                   onPressed: () {
                     if (_eventcontroller.text.isEmpty) {
                     } else {
@@ -123,7 +93,7 @@ class _ScreenAllergyState extends State<ScreenAllergy> {
             ),
           ),
           label: const Text('добавить событие'),
-          icon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
         ),
       ),
     );
