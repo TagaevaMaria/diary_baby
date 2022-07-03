@@ -15,7 +15,7 @@ class _ScreenPhotoState extends State<ScreenPhoto> {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'Альбомы по месяцам',
             ),
             backgroundColor: Color.fromRGBO(165, 218, 249, 1),
