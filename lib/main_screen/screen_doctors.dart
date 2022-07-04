@@ -10,18 +10,48 @@ class ScreenDoctors extends StatefulWidget {
 }
 
 class _ScreenDoctorsState extends State<ScreenDoctors> {
+  TextEditingController _eventController = TextEditingController();
+
+  ///контрол для ввода текста
+  void dispose() {
+    _eventController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(backgroundColor: const Color.fromRGBO(165, 218, 249, 1)),
-        body: TextButton(
-          onPressed: () {},
-          child: const Text(
-            'Добавить посещение врача',
-            style: TextStyle(fontSize: 30),
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(backgroundColor: Color.fromRGBO(165, 218, 249, 1)),
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: ElevatedButton(
+          onPressed: () => showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('Информация о приеме'),
+              content: TextFormField(
+                controller: _eventController,
+              ),
+              actions: [
+                TextButton(
+                  child: Text('ок'),
+                  onPressed: () {
+                    (_eventController.text.isEmpty);
+                    Navigator.pop(context);
+                  },
+
+                  ///закрытие маршрута
+                ),
+              ],
+            ),
           ),
-          style: ButtonStyle(),
-        ));
+          child: const Text(
+            'Добавить врача',
+            style: TextStyle(fontSize: 40),
+          ),
+        ),
+      ),
+    );
   }
 }
