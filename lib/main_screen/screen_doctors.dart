@@ -37,8 +37,8 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
                 TextButton(
                   child: Text('ок'),
                   onPressed: () {
-                    (_eventController.text.isEmpty);
                     Navigator.pop(context);
+                    _eventController.clear();
                   },
 
                   ///закрытие маршрута
