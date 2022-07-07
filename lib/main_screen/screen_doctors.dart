@@ -22,7 +22,7 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(backgroundColor: Color.fromRGBO(165, 218, 249, 1)),
+      appBar: AppBar(backgroundColor: const Color.fromRGBO(165, 218, 249, 1)),
       body: ListView.builder(
           itemCount: listDoctors.length,
           itemBuilder: (BuildContext context, int index) {
@@ -47,7 +47,7 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text('Добавить прием врача'),
+                    title: const Text('Добавить прием врача'),
                     content: TextField(
                       onChanged: (String value) {
                         _userText = value;
@@ -61,12 +61,12 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
                               Navigator.of(context).pop();
                             });
                           },
-                          child: Text('ok'))
+                          child: const Text('ok'))
                     ],
                   );
                 });
           },
-          child: Icon(
+          child: const Icon(
             Icons.add_circle_outline,
             size: 50,
           )),
