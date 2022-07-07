@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 /// Экран записи к доктору.
 class ScreenDoctors extends StatefulWidget {
@@ -10,12 +10,12 @@ class ScreenDoctors extends StatefulWidget {
 }
 
 class _ScreenDoctorsState extends State<ScreenDoctors> {
-  TextEditingController _eventController = TextEditingController();
-
-  ///контрол для ввода текста
-  void dispose() {
-    _eventController.dispose();
-    super.dispose();
+  late String _userText;
+  List listDoctors = [];
+  @override
+  void initState() {
+    super.initState();
+    listDoctors.addAll(['Аллерголог', 'Невролог', 'Педиатр']);
   }
 
   @override
@@ -23,35 +23,53 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(backgroundColor: Color.fromRGBO(165, 218, 249, 1)),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: ElevatedButton(
-          onPressed: () => showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text('Информация о приеме'),
-              content: TextFormField(
-                controller: _eventController,
-              ),
-              actions: [
-                TextButton(
-                  child: Text('ок'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _eventController.clear();
-                  },
-
-                  ///закрытие маршрута
+      body: ListView.builder(
+          itemCount: listDoctors.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Dismissible(
+              key: Key(listDoctors[index]),
+              child: Card(
+                child: ListTile(
+                  title: Text(listDoctors[index]),
                 ),
-              ],
-            ),
-          ),
-          child: const Text(
-            'Добавить врача',
-            style: TextStyle(fontSize: 40),
-          ),
-        ),
-      ),
+              ),
+              onDismissed: (directional) {
+                setState(() {
+                  listDoctors.removeAt((index));
+                });
+              },
+            );
+          }),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigoAccent,
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Добавить прием врача'),
+                    content: TextField(
+                      onChanged: (String value) {
+                        _userText = value;
+                      },
+                    ),
+                    actions: [
+                      ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              listDoctors.add(_userText);
+                              Navigator.of(context).pop();
+                            });
+                          },
+                          child: Text('ok'))
+                    ],
+                  );
+                });
+          },
+          child: Icon(
+            Icons.add_circle_outline,
+            size: 50,
+          )),
     );
   }
 }
