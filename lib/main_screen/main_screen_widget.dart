@@ -41,6 +41,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                   '/screen_doctors',
                 );
               },
+              onPressedThree: () {},
             ),
             _rowWidgets(
               title: 'Фотографии',
@@ -62,6 +63,9 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
               onPressedTwo: () {
                 Navigator.of(context).pushNamed('/screen_allergy');
               },
+              onPressedThree: () {
+                Navigator.of(context).pushNamed('/screen_height_weight');
+              },
             ),
             _rowWidgets(
               title: 'Прививки',
@@ -77,6 +81,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               onPressed: () {},
               onPressedTwo: () {},
+              onPressedThree: () {},
             ),
           ],
         ),
@@ -85,20 +90,20 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   }
 
   /// Ряд виджетов.
-  Widget _rowWidgets({
-    required String title,
-    required String titleTwo,
-    required String titleThree,
-    required String image,
-    required String imageTwo,
-    required String imageThree,
-    required double size,
-    required EdgeInsets padding,
-    required MainAxisAlignment mainAxisAlignment,
-    required CrossAxisAlignment crossAxisAlignment,
-    required Function() onPressed,
-    required Function() onPressedTwo,
-  }) {
+  Widget _rowWidgets(
+      {required String title,
+      required String titleTwo,
+      required String titleThree,
+      required String image,
+      required String imageTwo,
+      required String imageThree,
+      required double size,
+      required EdgeInsets padding,
+      required MainAxisAlignment mainAxisAlignment,
+      required CrossAxisAlignment crossAxisAlignment,
+      required Function() onPressed,
+      required Function() onPressedTwo,
+      required Function() onPressedThree}) {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
@@ -122,7 +127,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           image: imageThree,
           size: size,
           padding: padding,
-          onPressed: () {},
+          onPressed: onPressedThree,
         ),
       ],
     );

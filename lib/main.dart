@@ -9,8 +9,10 @@ import 'main_screen/background_widget.dart';
 import 'main_screen/screen_doctors.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'ScreenHeightWeight/screen_height_weight.dart';
+
 void main() {
-  initializeDateFormatting().then((_) => runApp(MyApp()));
+  initializeDateFormatting().then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -35,6 +37,7 @@ class _MyAppState extends State<MyApp> {
             ),
         '/screen_photo': (context) => const ScreenPhoto(),
         '/screen_allergy': (context) => const ScreenAllergy(),
+        '/screen_height_weight': (context) => const ScreenHeightWeight(),
       },
       initialRoute: '/',
     );
