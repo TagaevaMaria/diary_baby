@@ -17,7 +17,7 @@ class _ScrenHeightWeightState extends State<ScreenHeightWeight> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(165, 218, 249, 1),
-        title: Text('Показатели'),
+        title: const Text('Показатели'),
       ),
 
       /// кнопки вес и рост
@@ -27,12 +27,14 @@ class _ScrenHeightWeightState extends State<ScreenHeightWeight> {
         image: 'image/image_screen_ height_weight/weight.png',
         imageTwo: 'image/image_screen_ height_weight/height.png',
         size: 80.0,
-        paddingOne: EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),
+        paddingOne:
+            const EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         onPressed: () {},
         onPressedTwo: () {},
-        paddingTwy: EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),
+        paddingTwy:
+            const EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),
       ),
     ));
   }
