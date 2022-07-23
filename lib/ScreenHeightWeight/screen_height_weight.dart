@@ -31,7 +31,9 @@ class _ScrenHeightWeightState extends State<ScreenHeightWeight> {
             const EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('/indicator_calendar_weight');
+        },
         onPressedTwo: () {},
         paddingTwy:
             const EdgeInsets.only(top: 50, bottom: 20, left: 10, right: 10),

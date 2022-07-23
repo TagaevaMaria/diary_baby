@@ -21,6 +21,7 @@ class _ScreenDoctorsState extends State<ScreenDoctors> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
       appBar: AppBar(backgroundColor: const Color.fromRGBO(165, 218, 249, 1)),
       body: ListView.builder(

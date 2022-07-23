@@ -1,3 +1,4 @@
+import 'package:diary_baby/main_screen/background_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,77 +12,81 @@ class ScreenAchievements extends StatefulWidget {
 class _ScreenAchievementsState extends State<ScreenAchievements> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(165, 218, 249, 1),
-      ),
-      body: SingleChildScrollView(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Image(
-            image: AssetImage('image/chart.jpeg'),
-          ),
-          TextButton(
-            onPressed: () => _datePicker(context),
-            child: const Text(
-              'Улыбка',
-              style: TextStyle(fontSize: 25),
+    return BackgroundWidget(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(165, 218, 249, 1),
+        ),
+        body: SingleChildScrollView(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const Image(
+              image: AssetImage('image/chart.jpeg'),
             ),
-          ),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Гуление',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Целенаправленные движения руками',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Перевeрнулся',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Сидит',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
+            TextButton(
               onPressed: () => _datePicker(context),
               child: const Text(
-                'Ползает',
+                'Улыбка',
                 style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Встает',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Ходит с поддержкой',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: const Text(
-                'Стоит',
-                style: TextStyle(fontSize: 25),
-              )),
-          TextButton(
-              onPressed: () => _datePicker(context),
-              child: Text(
-                'Самостоятельно ходит',
-                style: TextStyle(fontSize: 25),
-              )),
-        ]),
+              ),
+            ),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Гуление',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Целенаправленные движения руками',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Перевeрнулся',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Сидит',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Ползает',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Встает',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Ходит с поддержкой',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Стоит',
+                  style: TextStyle(fontSize: 25),
+                )),
+            TextButton(
+                onPressed: () => _datePicker(context),
+                child: const Text(
+                  'Самостоятельно ходит',
+                  style: TextStyle(fontSize: 25),
+                )),
+          ]),
+        ),
       ),
     );
   }

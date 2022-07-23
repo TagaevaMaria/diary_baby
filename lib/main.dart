@@ -2,6 +2,7 @@ import 'package:diary_baby/screen_allergy/screen_allergy.dart';
 import 'package:diary_baby/main_screen/screen_photo.dart';
 import 'package:flutter/material.dart';
 
+import 'ScreenHeightWeight/indicator_calendar_weight.dart';
 import 'authorization/authorization.dart';
 import 'main_screen/main_screen_widget.dart';
 import 'main_screen/screen_achievements.dart';
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
         '/screen_photo': (context) => const ScreenPhoto(),
         '/screen_allergy': (context) => const ScreenAllergy(),
         '/screen_height_weight': (context) => const ScreenHeightWeight(),
+        '/indicator_calendar_weight': (context) => IndicatorCalendarWeight(),
       },
       initialRoute: '/',
     );
